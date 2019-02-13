@@ -142,14 +142,14 @@ void KeyboardBase::emitKeyEvent(uint8_t row, uint8_t col, bool pressed) {
     keyPressedNum++;
   } else {
     keyReleaseStack.push(keycode);
-    keyPressedNum++;
+    keyReleasedNum++;
   }
 
   triggerCompositeKey(keycode, pressed);
 
   // 当keyPressedNum 和 keyPressedNum相等的时候就清0
-  if (keyPressedNum == keyPressedNum) {
-    keyPressedNum = keyPressedNum = 0;
+  if (keyPressedNum == keyReleasedNum) {
+    keyPressedNum = keyReleasedNum = 0;
     keyPressStack.empty();
     keyReleaseStack.empty();
   }
